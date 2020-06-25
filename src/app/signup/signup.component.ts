@@ -17,12 +17,20 @@ export class SignupComponent implements OnInit {
   }
   userTypes = ['regular user', 'project owner'];
   ScrumuserModel = new Scrumuser( '','','','','')
+  feedback = ''
 
   onSubmit(){
     console.log(this.ScrumuserModel);
     this._ScrumdataService.signup(this.ScrumuserModel).subscribe(
-      data =>console.log('success', data),
-      error =>console.log('error', error)
+      data =>{
+        console.log('success', data)
+        this.feedback = data.message
+      } ,
+      error => {
+        console.log('error', error)
+        this.feedback = error.message
+      }
+    
     )
   }
 }

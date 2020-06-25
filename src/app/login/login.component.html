@@ -1,37 +1,48 @@
-<div class="container.fluid">
-    <h1>Login into your account</h1>
-    <br>
-    <!-- {{userLoginForm.value | json}} -->
-    <form #userLoginForm = 'ngForm'>
-      
-        <div class="form-group">
-            <label >Email name:</label><br>
-            <input required type="email" name="email" #email = 'ngModel' 
-            pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Enter your email"
-            [class.is-invalid]="email.invalid && email.touched" class="form-control" ngModel>
-            <div *ngIf="email.errors && (email.invalid || email.touched) ">
-                <small class="text-danger" *ngIf= "email.errors.required">An email is required</small>
-                <small class="text-danger" *ngIf= "email.errors.pattern"
-                >This doesn't look like an email</small>
+<style>
+    summary::-webkit-details-marker {
+    color: #007bff;
+    background-color: #007bff;
+    padding-top: 2px;
+}
+</style>
+
+<details>
+    <summary class="btn btn-primary d-flex justify-content-center" >LOGIN TO YOUR ACCOUNT</summary>
+    <div class="container.fluid">
+        <h1>Login into your account</h1>
+        <br>
+        <!-- {{userLoginForm.value | json}} -->
+        <form #userLoginForm = 'ngForm'>
+          
+            <div class="form-group">
+                <label >Email name:</label><br>
+                <input required type="email" name="email" #email = 'ngModel' 
+                pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" placeholder="Enter your email"
+                [class.is-invalid]="email.invalid && email.touched" class="form-control" ngModel>
+                <div *ngIf="email.errors && (email.invalid || email.touched) ">
+                    <small class="text-danger" *ngIf= "email.errors.required">An email is required</small>
+                    <small class="text-danger" *ngIf= "email.errors.pattern"
+                    >This doesn't look like an email</small>
+                </div>
+                <br>
             </div>
-            <br>
-        </div>
-        <div class="form-group">
-            <label >Password:</label><br>
-            <input required type="password" pattern="^.{8,16}$"
-            [class.is-invalid]="password.invalid && password.touched" #password = 'ngModel' 
-             name="password" placeholder="Enter your password" class="form-control" ngModel
-             >
-             <div *ngIf="password.errors && (password.invalid || password.touched) " >
-                <small class="text-danger" *ngIf= "password.errors.required">Password is required</small>
-                <small class="text-danger" *ngIf= "password.errors.pattern"
-                >Password should be 8 - 15 characters long</small>
-            </div><br>
-        </div>
-        <div class="form-group">    
-            <label >Project name:</label><br>
-            <input required type="text" name="project name" placeholder="write a project name" class="form-control" ngModel><br>
-        </div>
-        <button class="btn btn-primary" type="submit">Sign in </button>
-    </form>
-</div>
+            <div class="form-group">
+                <label >Password:</label><br>
+                <input required type="password" pattern="^.{8,16}$"
+                [class.is-invalid]="password.invalid && password.touched" #password = 'ngModel' 
+                 name="password" placeholder="Enter your password" class="form-control" ngModel
+                 >
+                 <div *ngIf="password.errors && (password.invalid || password.touched) " >
+                    <small class="text-danger" *ngIf= "password.errors.required">Password is required</small>
+                    <small class="text-danger" *ngIf= "password.errors.pattern"
+                    >Password should be 8 - 15 characters long</small>
+                </div><br>
+            </div>
+            <div class="form-group">    
+                <label >Project name:</label><br>
+                <input required type="text" name="project name" placeholder="write a project name" class="form-control" ngModel><br>
+            </div>
+            <button class="btn btn-primary" type="submit">Sign in </button>
+        </form>
+    </div>
+</details>

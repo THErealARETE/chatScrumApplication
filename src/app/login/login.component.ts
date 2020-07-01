@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  scrumUserLoginData = {}
+  scrumUserLoginData = {email: '', password: '', projname: ''}
   constructor(private _scrumdataService: ScrumdataService, private _router: Router){}
 
   ngOnInit(): void {
@@ -18,8 +18,6 @@ export class LoginComponent implements OnInit {
   onLoginSubmit(){
     console.log(this.scrumUserLoginData);
     this._scrumdataService.login(this.scrumUserLoginData).subscribe(
-      // data => console.log('success', data),
-      // error => console.log('Error', error)
       data =>{
         console.log('success', data),
         localStorage.setItem('token', data.token)

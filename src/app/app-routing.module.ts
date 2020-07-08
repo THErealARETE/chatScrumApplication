@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth.guard';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ScrumboardComponent } from './scrumboard/scrumboard.component';
 import { SignupComponent } from './signup/signup.component';
@@ -11,7 +12,7 @@ const routes: Routes = [
   {path : 'home', component:HomepageComponent},
   {path : 'login', component:LoginComponent},
   {path : 'signup', component:SignupComponent},
-  {path : 'scrumboard', component:ScrumboardComponent} 
+  {path : 'scrumboard/:project_id', component:ScrumboardComponent, canActivate: [AuthGuard]} 
 ];
 
 @NgModule({

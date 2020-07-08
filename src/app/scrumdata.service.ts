@@ -14,6 +14,8 @@ export class ScrumdataService {
 
   _loginurl = 'https://stageapi.chatscrum.com/scrum/api-token-auth/'
 
+  _scrumProjecturl = 'https://stageapi.chatscrum.com/scrum/api/scrumprojects/31/'
+
   public httpOptions = {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   }
@@ -27,4 +29,14 @@ export class ScrumdataService {
     return this._http.post<any>(this._loginurl, {'username': user['email'], 'password':user['password'],
                 'project':user['projname']}, this.httpOptions)
   }
+  
+  loggedIn(){
+    return !!localStorage.getItem('token')
+  }
+
+  allProjectGoals(project_id){
+    return this._http.get<any>(this._scrumProjecturl 
+     , this.httpOptions)
+  }
+
 }

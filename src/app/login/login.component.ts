@@ -14,14 +14,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+    
   onLoginSubmit(){
     console.log(this.scrumUserLoginData);
     this._scrumdataService.login(this.scrumUserLoginData).subscribe(
       data =>{
         console.log('success', data),
         localStorage.setItem('token', data.token)
-        this._router.navigate(['/scrumboard'])
+        this._router.navigate(['/scrumboard', data['project_id']])
       },
       error =>{
         console.log('error',error)

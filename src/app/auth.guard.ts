@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     if (this._scrumdataService.loggedIn()){
       return true
     }else {
-      this._router.navigate(['/login'])
+      this._router.navigate(['/signup'])
       return false
     }
   }
